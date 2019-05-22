@@ -1,5 +1,7 @@
 #This file is from work at the CJC.
 import binascii
+import random
+import os, binascii
 
 
 #
@@ -79,6 +81,25 @@ def explain_hex_WAV(hex_list):
 #Unsure if this works - at the 45th index the data stream begins.
 def give_data_stream_hex(hex_list):
 	return hex_list[44:]
+
+
+
+#n represents the size of the data stream
+def make_data_stream(n):
+	data_stream = []
+	for i in range(n):
+		data_stream.append(make_random_byte())
+	return data_stream
+
+#Testing
+def make_random_byte():
+	return binascii.b2a_hex(os.urandom(1)).decode('utf-8')
+
+
+#n is the number of samples
+#def make_random_WAV_file(n):
+
+
 
 
 
